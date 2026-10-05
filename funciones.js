@@ -10,6 +10,8 @@ function calcularDisponible(ingresos, egresos) {
 }
 
 function calcular(){
+
+  //disponible
   let ingresos = recuperarFloat("txtIngresos");
   let egresos = recuperarFloat("txtEgresos");
 
@@ -17,9 +19,20 @@ function calcular(){
 
   mostrarTextoSpan("spnDisponible", disponible);
 
+
+  //capacidad de pago
   let capacidadDePago = calcularCapacidadPago(disponible);
 
   mostrarTextoSpan("spnCapacidadPago", capacidadDePago)
+
+  //intereses simple
+  let monto = recuperarFloat("txtMonto");
+  let tasa = recuperarFloat("txtTasaInteres");
+  let plazo = recuperarFloat("txtPlazo");
+
+  let interes = calcularInteresSimple(monto, tasa, plazo);
+
+  mostrarTextoSpan("spnInteresPagar", interes)
 }
 
 function calcularCapacidadPago(montoDisponible){
@@ -27,8 +40,8 @@ function calcularCapacidadPago(montoDisponible){
   return montoDisponible / 2;
 }
 
-function calcularInteresSimple(monto, tasa, plazoAnios) {
-  return plazoAnios * monto * (tasa / 100);
+function calcularInteresSimple(monto, tasa, plazo) {
+  return plazo * monto * (tasa / 100);
 }
 //funciones de utilidades
 
