@@ -16,10 +16,15 @@ function calcular(){
   let disponible = calcularDisponible(ingresos, egresos);
 
   mostrarTextoSpan("spnDisponible", disponible);
+
+  let capacidadDePago = calcularCapacidadPago(disponible);
+
+  mostrarTextoSpan("spnCapacidadPago", capacidadDePago)
 }
 
-function calcularCapacidadPago(){
-  1
+function calcularCapacidadPago(montoDisponible){
+
+  return montoDisponible / 2;
 }
 
 //funciones de utilidades
