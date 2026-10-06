@@ -33,8 +33,32 @@ function calcular(){
   let interes = calcularInteresSimple(monto, tasa, plazo);
 
   mostrarTextoSpan("spnInteresPagar", interes)
+
+  //total a pagar
+  let totalPagar = calcularTotalPagar(monto, interes);
+
+  mostrarTextoSpan("spnTotalPrestamo", totalPagar)
+
+  //calcular cuota mensual
+  let cuotaMensual = calcularCuotaMensual(totalPagar, plazo);
+
+  mostrarTextoSpan("spnCuotaMensual", cuotaMensual)
+
+  let aprobado = aprobarCredito(capacidadDePago, cuotaMensual);
+
+  if (aprobado == true) {
+
+    mostrarTextoSpan("spnEstadoCredito", "CREDITO APROBADO")
+   
+  } else {
+
+    mostrarTextoSpan("spnEstadoCredito", "CREDITO RECHAZADO")
+
+  }
 }
 
+
+//funciones matematicas
 function calcularCapacidadPago(montoDisponible){
 
   return montoDisponible / 2;
@@ -43,6 +67,21 @@ function calcularCapacidadPago(montoDisponible){
 function calcularInteresSimple(monto, tasa, plazo) {
   return plazo * monto * (tasa / 100);
 }
+
+function calcularTotalPagar(monto, interes) {
+  return monto + interes + 100;
+}
+
+function calcularCuotaMensual(total, plazo) {
+  let meses = plazo * 12;
+  return total / meses;
+}
+
+function aprobarCredito(capacidadPago, cuotaMensual) {
+  return capacidadPago > cuotaMensual;
+}
+
+
 //funciones de utilidades
 
 function recuperarTexto(idComponente) {
