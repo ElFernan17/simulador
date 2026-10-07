@@ -1,70 +1,266 @@
+:root {
+    --fondo: #f2f4f6;
+    --superficie: #ffffff;
+    --tinta: #17212b;
+    --texto-suave: #5a6675;
+    --linea: #dce1e7;
+    --borde-input: #c5ccd5;
+    --acento: #0e5a4a;
+    --acento-sombra: rgba(14, 90, 74, 0.18);
+    --aprobado: #7fd1b9;
+    --rechazado: #f0a59b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
+    font-family: "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--tinta);
+    background-color: var(--fondo);
     margin: 0;
     padding: 0;
+    border-top: 4px solid var(--acento);
 }
 
 .container {
-    width: 400px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 20px 64px;
+}
+
+/* Encabezado */
+.encabezado {
+    margin-bottom: 32px;
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
+    font-size: 1.875rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    margin: 0 0 8px;
+}
+
+.descripcion {
+    max-width: 60ch;
+    margin: 0;
+    color: var(--texto-suave);
+}
+
+/* Bloques de formulario */
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.bloque {
+    background-color: var(--superficie);
+    border: 1px solid var(--linea);
+    border-radius: 6px;
+    padding: 28px;
 }
 
 h2 {
-    margin-top: 20px;
-    font-size: 18px;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    margin: 0 0 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--linea);
+}
+
+.campo {
+    margin-bottom: 18px;
 }
 
 label {
     display: block;
-    margin-top: 10px;
-    font-weight: bold;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 6px;
 }
 
 input {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    height: 44px;
+    padding: 0 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--tinta);
+    background-color: var(--superficie);
+    border: 1px solid var(--borde-input);
+    border-radius: 4px;
+    font-variant-numeric: tabular-nums;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-p {
-    margin-top: 10px;
+input::placeholder {
+    color: #9aa4b0;
+}
+
+input:hover {
+    border-color: #9aa4b0;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--acento);
+    box-shadow: 0 0 0 3px var(--acento-sombra);
+}
+
+/* Resultados calculados */
+.resultados {
+    margin: 8px 0 0;
+}
+
+.fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 12px 0;
+    border-top: 1px solid var(--linea);
+}
+
+dt {
+    font-size: 0.9375rem;
+    color: var(--texto-suave);
+}
+
+dd {
+    margin: 0;
 }
 
 span {
-    font-weight: bold;
-    color: #2c3e50;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.fila span:empty::before {
+    content: "\2014";
+    font-weight: 400;
+    color: #9aa4b0;
+}
+
+/* Panel de estado y acciones */
+.panel-estado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 24px;
+    padding: 28px;
+    color: #ffffff;
+    background-color: var(--tinta);
+    border-radius: 6px;
+}
+
+.estado-titulo {
+    margin: 0 0 4px;
+    font-size: 0.875rem;
+    color: #aab4c0;
+}
+
+#spnEstadoCredito {
+    display: block;
+    font-size: 1.625rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+#spnEstadoCredito.aprobado {
+    color: var(--aprobado);
+}
+
+#spnEstadoCredito.rechazado {
+    color: var(--rechazado);
 }
 
 .buttons {
-    margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    gap: 12px;
 }
 
 button {
-    width: 48%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #3498db;
-    color: white;
-    font-weight: bold;
+    min-height: 44px;
+    padding: 0 24px;
+    font-family: inherit;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
-button:hover {
-    background-color: #2980b9;
+#btnCalcularCredito {
+    color: var(--tinta);
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+#btnCalcularCredito:hover {
+    background-color: #e6ebf0;
+    border-color: #e6ebf0;
+}
+
+#btnReiniciar {
+    color: #ffffff;
+    background-color: transparent;
+    border: 1px solid #5d6b7a;
+}
+
+#btnReiniciar:hover {
+    border-color: #ffffff;
+}
+
+button:focus-visible {
+    outline: 3px solid var(--aprobado);
+    outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+    .container {
+        padding: 32px 16px 48px;
+    }
+
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+
+    .bloque,
+    .panel-estado {
+        padding: 22px 20px;
+    }
+
+    h1 {
+        font-size: 1.625rem;
+    }
+
+    .panel-estado {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    input,
+    button {
+        transition: none;
+    }
 }

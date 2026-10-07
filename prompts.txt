@@ -1,0 +1,1 @@
+actúa como diseñador grafico profesional y modifica la estética de esta pagina manteniendo los css y html separados, no modifiques ids ya que los necesito para su funcionamiento, crea una interfaz profesional y minimalista como para una empresa seria

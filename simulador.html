@@ -4,43 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Crédito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="simulador.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>Simulador de Crédito</h1>
+        <header class="encabezado">
+            <h1>Simulador de crédito</h1>
+            <p class="descripcion">Ingresa tus datos financieros y los de la solicitud para conocer tu cuota mensual y el estado del crédito.</p>
+        </header>
 
-        <h2>Datos financieros</h2>
-        <label for="txtIngresos">Ingresos:</label>
-        <input type="text" id="txtIngresos">
+        <main class="formulario">
+            <section class="bloque">
+                <h2>Datos financieros</h2>
 
-        <label for="txtEgresos">Egresos:</label>
-        <input type="text" id="txtEgresos">
+                <div class="campo">
+                    <label for="txtIngresos">Ingresos (USD)</label>
+                    <input type="text" id="txtIngresos" inputmode="decimal" placeholder="0.00">
+                </div>
 
-        <p>Disponible: <span id="spnDisponible"></span></p>
-        <p>Capacidad de pago mensual: <span id="spnCapacidadPago"></span></p>
+                <div class="campo">
+                    <label for="txtEgresos">Egresos (USD)</label>
+                    <input type="text" id="txtEgresos" inputmode="decimal" placeholder="0.00">
+                </div>
 
-        <h2>Solicitud de crédito</h2>
-        <label for="txtMonto">Monto:</label>
-        <input type="text" id="txtMonto">
+                <dl class="resultados">
+                    <div class="fila">
+                        <dt>Disponible</dt>
+                        <dd><span id="spnDisponible"></span></dd>
+                    </div>
+                    <div class="fila">
+                        <dt>Capacidad de pago mensual</dt>
+                        <dd><span id="spnCapacidadPago"></span></dd>
+                    </div>
+                </dl>
+            </section>
 
-        <label for="txtPlazo">Plazo en años:</label>
-        <input type="text" id="txtPlazo">
+            <section class="bloque">
+                <h2>Solicitud de crédito</h2>
 
-        <label for="txtTasaInteres">Tasa de interés:</label>
-        <input type="text" id="txtTasaInteres">
+                <div class="campo">
+                    <label for="txtMonto">Monto (USD)</label>
+                    <input type="text" id="txtMonto" inputmode="decimal" placeholder="0.00">
+                </div>
 
-        <p>Interés a pagar: <span id="spnInteresPagar"></span></p>
-        <p>Total préstamo: <span id="spnTotalPrestamo"></span></p>
-        <p>Cuota mensual: <span id="spnCuotaMensual"></span></p>
-        <p>Estado de crédito: <span id="spnEstadoCredito">ANALIZANDO...</span></p>
+                <div class="campo">
+                    <label for="txtPlazo">Plazo (años)</label>
+                    <input type="text" id="txtPlazo" inputmode="decimal" placeholder="0">
+                </div>
 
-        <div class="buttons">
-            <button id="btnCalcularCredito" onclick="calcular();">Calcular Crédito</button>
-            <button id="btnReiniciar">Reiniciar</button>
-        </div>
+                <div class="campo">
+                    <label for="txtTasaInteres">Tasa de interés (%)</label>
+                    <input type="text" id="txtTasaInteres" inputmode="decimal" placeholder="0.00">
+                </div>
+
+                <dl class="resultados">
+                    <div class="fila">
+                        <dt>Interés a pagar</dt>
+                        <dd><span id="spnInteresPagar"></span></dd>
+                    </div>
+                    <div class="fila">
+                        <dt>Total préstamo</dt>
+                        <dd><span id="spnTotalPrestamo"></span></dd>
+                    </div>
+                    <div class="fila">
+                        <dt>Cuota mensual</dt>
+                        <dd><span id="spnCuotaMensual"></span></dd>
+                    </div>
+                </dl>
+            </section>
+        </main>
+
+        <section class="panel-estado">
+            <div class="estado">
+                <p class="estado-titulo">Estado de crédito</p>
+                <span id="spnEstadoCredito">ANALIZANDO...</span>
+            </div>
+
+            <div class="buttons">
+                <button id="btnCalcularCredito" onclick="calcular();">Calcular Crédito</button>
+                <button id="btnReiniciar">Reiniciar</button>
+            </div>
+        </section>
     </div>
+
     <script src="funciones.js"></script>
 </body>
 </html>
