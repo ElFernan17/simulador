@@ -23,12 +23,14 @@
 
                 <div class="campo">
                     <label for="txtIngresos">Ingresos (USD)</label>
-                    <input type="text" id="txtIngresos" inputmode="decimal" placeholder="0.00">
+                    <input type="text" id="txtIngresos" inputmode="decimal" placeholder="0.00" onblur="validarIngresos();">
+                    <span class="mensaje-error" id="errIngresos"></span>
                 </div>
 
                 <div class="campo">
                     <label for="txtEgresos">Egresos (USD)</label>
-                    <input type="text" id="txtEgresos" inputmode="decimal" placeholder="0.00">
+                    <input type="text" id="txtEgresos" inputmode="decimal" placeholder="0.00" onblur="validarEgresos();">
+                    <span class="mensaje-error" id="errEgresos"></span>
                 </div>
 
                 <dl class="resultados">
@@ -48,17 +50,20 @@
 
                 <div class="campo">
                     <label for="txtMonto">Monto (USD)</label>
-                    <input type="text" id="txtMonto" inputmode="decimal" placeholder="0.00">
+                    <input type="text" id="txtMonto" inputmode="decimal" placeholder="0.00" onblur="validarMonto();">
+                    <span class="mensaje-error" id="errMonto"></span>
                 </div>
 
                 <div class="campo">
                     <label for="txtPlazo">Plazo (años)</label>
-                    <input type="text" id="txtPlazo" inputmode="decimal" placeholder="0">
+                    <input type="text" id="txtPlazo" inputmode="decimal" placeholder="0" onblur="validarPlazo();">
+                    <span class="mensaje-error" id="errPlazo"></span>
                 </div>
 
                 <div class="campo">
                     <label for="txtTasaInteres">Tasa de interés (%)</label>
-                    <input type="text" id="txtTasaInteres" inputmode="decimal" placeholder="0.00">
+                    <input type="text" id="txtTasaInteres" inputmode="decimal" placeholder="0.00" onblur="validarTasaInteres();">
+                    <span class="mensaje-error" id="errTasaInteres"></span>
                 </div>
 
                 <dl class="resultados">

@@ -74,7 +74,7 @@ h2 {
 }
 
 .campo {
-    margin-bottom: 18px;
+    margin-bottom: 6px;
 }
 
 label {
@@ -263,4 +263,25 @@ button:focus-visible {
     button {
         transition: none;
     }
+}
+
+/* Validaciones */
+.mensaje-error {
+    display: block;
+    min-height: 1.1rem;
+    margin-top: 4px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.1rem;
+    color: #c0392b;
+}
+
+input.input-invalido,
+input.input-invalido:hover,
+input.input-invalido:focus {
+    border-color: #c0392b;
+}
+
+input.input-invalido:focus {
+    box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.18);
 }
