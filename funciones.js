@@ -66,7 +66,7 @@ function calcular(){
 //funciones matematicas
 function calcularCapacidadPago(montoDisponible){
 
-  return montoDisponible / 2;
+  return montoDisponible / 3;
 }
 
 function calcularInteresSimple(monto, tasa, plazo) {
